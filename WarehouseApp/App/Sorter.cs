@@ -10,7 +10,6 @@ namespace WarehouseApp.App
         public IList<KeyValuePair<string, Dictionary<string, int>>> Sort(T input)
         {
             return input.Stocks.ToList()
-                    //.OrderByDescending(q => q.Key)
                     .OrderByDescending(q => q.Value
                         .Where(w => w.Key != input.ErrorKey).Sum(q => q.Value))
                     .ToList();
